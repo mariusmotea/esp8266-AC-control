@@ -28,8 +28,9 @@ Ex:
 ➜  ~ curl 192.168.0.71/state
 {"mode":2,"fan":0,"temp":27,"power":true}%
 ➜  ~ curl -X PUT -d '{"temp":22}' 192.168.0.71/state
-{"temp":22}%                                                                                                                  ➜  ~ curl 192.168.0.71/state
-{"mode":2,"fan":0,"temp":22,"power":true}%                                                                                   
+{"temp":22}%
+➜  ~ curl 192.168.0.71/state
+{"mode":2,"fan":0,"temp":22,"power":true}%
 ```
 
 ## DEBUG:
