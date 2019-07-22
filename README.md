@@ -1,10 +1,9 @@
 # esp8266-AC-control
 
+This is just a web interface for the IRremoteESP8266 library made by @crankyoldgit witch will allow you to controll most of AC units from the market.  
 
 ![Web Gui Preview](https://github.com/mariusmotea/esp8266-AC-control/raw/master/printscreen.png)  
 
-
-This is just a web interface for the IRremoteESP8266 library made by @crankyoldgit witch will allow you to controll most of AC units from the market.
 
 ## Instructions:
 
@@ -17,6 +16,21 @@ This is just a web interface for the IRremoteESP8266 library made by @crankyoldg
  - Connect the board to yout wifi network (look for "AC Remote Control" SSID and follow WiFi Manager wizard)
 
  - Upload web application files in SPIFFS storage using build in web form located at /file-upload path.
+ 
+ 
+## REST API:
+
+Browser console will show the ajax calls to ESP8266 board. Running configuration can be displayed with GET request to /state path, any value can be changed with http PUT request to same path.
+
+Ex:
+
+```
+➜  ~ curl 192.168.0.71/state
+{"mode":2,"fan":0,"temp":27,"power":true}%
+➜  ~ curl -X PUT -d '{"temp":22}' 192.168.0.71/state
+{"temp":22}%                                                                                                                  ➜  ~ curl 192.168.0.71/state
+{"mode":2,"fan":0,"temp":22,"power":true}%                                                                                   
+```
 
 ## DEBUG:
 
