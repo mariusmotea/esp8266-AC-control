@@ -35,7 +35,7 @@ Ex:
 
 ## DEBUG:
 
-Use mobile phone cammera to see if the led send any IR signals. This will show if the circuit was properlly made and the selected GPIO pin is the correct one.
+Use mobile phone camera to see if the led is sending any IR signals when buttons are pressed. This will show if the circuit was properlly made and the selected GPIO pin is the correct one.
 
 
 ## Credits:
