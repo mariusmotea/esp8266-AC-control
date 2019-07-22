@@ -3,7 +3,7 @@ var state = {}
 function updateStatus() {
   $.ajax({
     type: 'GET',
-    url: "/state",
+    url: "state",
     dataType: "json",
     data: [{
       name: "light",
@@ -36,7 +36,7 @@ updateStatus();
 function postData(t) {
   var e = new XMLHttpRequest;
   e.timeout = 2000;
-  e.open("PUT", "/state", !0);
+  e.open("PUT", "state", !0);
   e.setRequestHeader("Content-Type", "application/json");
   console.log(JSON.stringify(t)), e.send(JSON.stringify(t));
 }
