@@ -55,6 +55,8 @@ function setModeColor(mode) {
   if (mode === 0) {
     $("#mode_auto").removeClass("btn-default");
     $("#mode_auto").addClass("btn-info");
+    setFanColor(0);
+    state["fan"] = 0;
   } else if (mode === 1) {
     $("#mode_cooling").removeClass("btn-default");
     $("#mode_cooling").addClass("btn-info");
@@ -80,18 +82,19 @@ function setFanColor(fan) {
   }
   for (var i = 1; i <= 3; ++i) {
     if (i <= fan) {
-      $("#fan_lvl_" + i).attr("src", "/level_" + i + "_on.svg");
+      $("#fan_lvl_" + i).attr("src", "level_" + i + "_on.svg");
     } else {
-      $("#fan_lvl_" + i).attr("src", "/level_" + i + "_off.svg");
+      $("#fan_lvl_" + i).attr("src", "level_" + i + "_off.svg");
     }
   }
 }
 
 function fan_onclick(fan) {
-  state["fan"] = fan;
-  setFanColor(fan);
-
-  postData(state);
+  if (state["mode"] !== 0) {
+    state["fan"] = fan;
+    setFanColor(fan);
+    postData(state);
+  }
 }
 
 function power_onclick(power) {
