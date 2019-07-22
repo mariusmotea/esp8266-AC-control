@@ -177,6 +177,8 @@ void setup() {
         ac.setTemp(acState.temperature);
         if (acState.operation == 0) {
           ac.setMode(auto_mode);
+          ac.setFan(fan_auto);
+          acState.fan = 0;
         } else if (acState.operation == 1) {
           ac.setMode(cool_mode);
         } else if (acState.operation == 2) {
@@ -187,15 +189,16 @@ void setup() {
           ac.setMode(fan_mode);
         }
 
-
-        if (acState.fan == 0) {
-          ac.setFan(fan_auto);
-        } else if (acState.fan == 1) {
-          ac.setFan(fan_min);
-        } else if (acState.fan == 2) {
-          ac.setFan(fan_med);
-        } else if (acState.fan == 3) {
-          ac.setFan(fan_hi);
+        if (acState.operation != 0) {
+          if (acState.fan == 0) {
+            ac.setFan(fan_auto);
+          } else if (acState.fan == 1) {
+            ac.setFan(fan_min);
+          } else if (acState.fan == 2) {
+            ac.setFan(fan_med);
+          } else if (acState.fan == 3) {
+            ac.setFan(fan_hi);
+          }
         }
       } else {
         ac.off();
@@ -221,7 +224,7 @@ void setup() {
   });
 
   server.on("/", []() {
-    server.sendHeader("Location", String("/ui.html"), true);
+    server.sendHeader("Location", String("ui.html"), true);
     server.send ( 302, "text/plain", "");
   });
 
