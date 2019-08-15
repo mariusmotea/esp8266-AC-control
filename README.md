@@ -1,6 +1,6 @@
 # esp8266-AC-control
 
-This is just a web interface for the IRremoteESP8266 library made by @crankyoldgit witch will allow you to controll most of AC units from the market.  
+This is just a web interface for the [IRremoteESP8266 library](https://github.com/crankyoldgit/IRremoteESP8266) made by [@crankyoldgit](https://github.com/crankyoldgit) which will allow you to control most of the AC units from the market.  
 
 ![Web Gui Preview](https://github.com/mariusmotea/esp8266-AC-control/raw/master/printscreen.png)  
 
